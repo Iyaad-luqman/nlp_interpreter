@@ -1,14 +1,24 @@
-from fastapi import FastAPI, HTTPException
 from llm_processor import process_prompt
+from llm_classifier import classify_prompt
 
-app = FastAPI()
-
-@app.get("/api/nlp/process")
-async def process(data: str):
+def process(data: str):
     try:
-        response_json = await process_prompt(data)
+        response_json = process_prompt(data)
         return response_json
     except ValueError as ve:
-        raise HTTPException(status_code=400, detail=str(ve))
+        print(f"ValueError: {str(ve)}")
+        return None
     except Exception as e:
-        raise HTTPException(status_code=500, detail="An unexpected error occurred.")
+        print("An unexpected error occurred.")
+        return None
+    
+def classify(data: str):
+    try:
+        response_json = classify_prompt(data)
+        return response_json
+    except ValueError as ve:
+        print(f"ValueError: {str(ve)}")
+        return None
+    except Exception as e:
+        print("An unexpected error occurred.")
+        return None
