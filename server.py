@@ -1,18 +1,22 @@
-from main import process
-from main import classify
-from fastapi import FastAPI
-from main import classify_multiple
+from flask import Flask, request
+from main import process, classify, classify_multiple
 
-app = FastAPI()
+app = Flask(__name__)
 
-@app.get("/api/nlp/process")
-async def nlp_process(data: str):
+@app.route("/api/nlp/process")
+def nlp_process():
+    data = request.args.get('data')
     return process(data)
 
-@app.get("/api/nlp/classify")
-async def nlp_classify(data: str):
+@app.route("/api/nlp/classify")
+def nlp_classify():
+    data = request.args.get('data')
     return classify(data)
 
-@app.get("/api/nlp/classify_into_multiple")
-async def nlp_classify_into_multiple(data: str):
+@app.route("/api/nlp/classify_into_multiple")
+def nlp_classify_into_multiple():
+    data = request.args.get('data')
     return classify_multiple(data)
+
+if __name__ == "__main__":
+    app.run(debug=True)

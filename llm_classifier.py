@@ -2,7 +2,7 @@ import json
 from langchain_community.llms import Ollama
 from schema_validator import is_valid_schema
 
-async def classify_prompt(data):
+def classify_prompt(data):
     options = ["create", "delete", "edit"]
     prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + options+  ". And the user input is "+  data + ".Provide the result response as JSON { \"action\": \"the_action\" } and nothing else."
     try:
@@ -32,7 +32,7 @@ async def classify_prompt(data):
         return (response)
     
 
-async def classify_multiple_prompt(data):
+def classify_multiple_prompt(data):
     options = ["create", "delete", "edit"]
     prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + options+  ". Please do note that, It can come under multiple options, so provide all of which it matches. And the user input is "+  data + ".Provide the result response as JSON { \"actions\": [\"the_action1\", \"the_action2\", \"the_action3\"] } and nothing else."
     try:
