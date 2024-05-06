@@ -3,8 +3,8 @@ from langchain_community.llms import Ollama
 from schema_validator import is_valid_schema
 
 def process_prompt(data):
-    json_schema = '''{"type": "object","properties": {    "name": {        "type": "string"},"emotion": {        "type": "string"}},"required": ["name,emotion"]}'''
-    prompt = "You are are an expert ontologist and have been asked to help a user define an information extractor.The user will input some text. Based on the user input, you are to provide the json response based on the Provided JSON schema which is" + json_schema+  ". It should be properly divided into the necessary format. And the user input is "+  data + ".Only provide the JSON response and nothing else."
+    json_schema = '''{  "type": "object",  "properties": {    "name": {      "type": "string"  },    "emotion": {      "type": "string"    }  },  "required": [    "name",    "emotion"  ]}'''
+    prompt = "You are are an expert ontologist and have been asked to help a user define an information extractor.The user will input some text. Based on the user input, you are to provide the json response based on the Provided JSON schema which is" + json_schema+  ". It should be properly divided into the necessary format. And the user input is "+  data + ".Only provide the JSON in the response and nothing else."
     try:
         llm = Ollama(model="llama3")
     except Exception as e:
@@ -23,4 +23,4 @@ def process_prompt(data):
             else:
                 raise ValueError("Response does not match the JSON schema after retry.")
     except Exception as e:
-        return (response)
+        return ("The prompt did not return a valid JSON. Please Debug to know more." + str(e))
