@@ -2,7 +2,7 @@
 
 ## Description
 
-The NLP Interpreter is a cutting-edge system designed to leverage the power of natural language processing (NLP) to classify textual data into user-defined categories. It offers a flexible and dynamic approach to text analysis, allowing users to specify the categories or actions they are interested in. This system is particularly useful for applications that require the categorization of text into predefined options, enhancing the automation and understanding of textual data.
+The NLP Interpreter is a  system designed to leverage the power of natural language processing (NLP) to classify textual data into user-defined categories. It offers a flexible and dynamic approach to text analysis, allowing users to specify the categories or actions they are interested in. This system is particularly useful for applications that require the categorization of text into predefined options, enhancing the automation and understanding of textual data.
 
 ## Practical Use Case Example: Smart Home Assistant
 
