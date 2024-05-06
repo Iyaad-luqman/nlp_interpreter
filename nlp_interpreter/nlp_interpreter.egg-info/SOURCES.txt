@@ -1,0 +1,7 @@
+README.md
+setup.py
+nlp_interpreter.egg-info/PKG-INFO
+nlp_interpreter.egg-info/SOURCES.txt
+nlp_interpreter.egg-info/dependency_links.txt
+nlp_interpreter.egg-info/requires.txt
+nlp_interpreter.egg-info/top_level.txt

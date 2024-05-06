@@ -23,7 +23,7 @@ class GeminiAPIModel(NLPModel):
 
         load_dotenv()
 
-        api_key = os.getenv('API_KEY')
+        api_key = os.getenv('GEMINI_API_KEY')
         genai.configure(api_key=api_key)
         # Set up the model
         generation_config = {

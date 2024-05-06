@@ -1,6 +1,6 @@
 import json
 from langchain_community.llms import Ollama
-import llm_switcher
+from . import llm_switcher
 
 def classify_prompt(data, model_name=None, options=None):
     if options is None:
