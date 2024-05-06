@@ -4,7 +4,7 @@ from schema_validator import is_valid_schema
 
 def classify_prompt(data):
     options = ["create", "delete", "edit"]
-    prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + options+  ". And the user input is "+  data + ".Provide the result response as JSON { \"action\": \"the_action\" } and nothing else."
+    prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + str(options)+  ". And the user input is "+  data + ".Provide the result response as JSON { \"action\": \"the_action\" } and nothing else."
     try:
         llm = Ollama(model="llama3")
     except Exception as e:

@@ -1,5 +1,6 @@
 from flask import Flask, request
 from main import process, classify, classify_multiple
+from llm_classifier import classify_prompt
 
 app = Flask(__name__)
 
@@ -11,7 +12,7 @@ def nlp_process():
 @app.route("/api/nlp/classify")
 def nlp_classify():
     data = request.args.get('data')
-    return classify(data)
+    return classify_prompt(data)
 
 @app.route("/api/nlp/classify_into_multiple")
 def nlp_classify_into_multiple():
