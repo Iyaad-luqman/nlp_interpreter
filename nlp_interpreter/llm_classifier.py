@@ -2,8 +2,11 @@ import json
 from langchain_community.llms import Ollama
 import llm_switcher
 
-def classify_prompt(data, model_name=None):
-    options = ["create", "delete", "edit"]
+def classify_prompt(data, model_name=None, options=None):
+    if options is None:
+        Exception("Options are required.")
+    if model_name is None:
+        Exception("Model name is required.")
     prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + str(options)+  ". And the user input is "+  data + ".Provide the result response as JSON { \"action\": \"the_action\" }. ONLY OUTPUT THE JSON and no other text not even GRAVE ACCENT. "
     try:
         nlp_model = llm_switcher.get_nlp_model( model_name=model_name)
@@ -32,8 +35,11 @@ def classify_prompt(data, model_name=None):
         return ("The prompt did not return a valid JSON. Please Debug to know more.")
     
 
-def classify_multiple_prompt(data, model_name=None):
-    options = ["create", "delete", "edit"]
+def classify_multiple_prompt(data, model_name=None, options=None):
+    if options is None:
+        Exception("Options are required.")
+    if model_name is None:
+        Exception("Model name is required.")
     prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + str(options)+  ". Please do note that, It can come under multiple options, so provide all of which it matches. And the user input is "+  data + ".Provide the result response as JSON { \"actions\": [\"the_action1\", \"the_action2\", \"the_action3\"] }. ONLY OUTPUT THE JSON and no other text, not even GRAVE ACCENT."
     try:
         nlp_model = llm_switcher.get_nlp_model( model_name=model_name)
