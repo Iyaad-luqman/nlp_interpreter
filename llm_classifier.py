@@ -4,7 +4,7 @@ import llm_switcher
 
 def classify_prompt(data, model_name=None):
     options = ["create", "delete", "edit"]
-    prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + str(options)+  ". And the user input is "+  data + ".Provide the result response as JSON { \"action\": \"the_action\" }. ONLY OUTPUT THE JSON and no other text. "
+    prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + str(options)+  ". And the user input is "+  data + ".Provide the result response as JSON { \"action\": \"the_action\" }. ONLY OUTPUT THE JSON and no other text not even GRAVE ACCENT. "
     try:
         nlp_model = llm_switcher.get_nlp_model( model_name=model_name)
     except Exception as e:
@@ -34,7 +34,7 @@ def classify_prompt(data, model_name=None):
 
 def classify_multiple_prompt(data, model_name=None):
     options = ["create", "delete", "edit"]
-    prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + str(options)+  ". Please do note that, It can come under multiple options, so provide all of which it matches. And the user input is "+  data + ".Provide the result response as JSON { \"actions\": [\"the_action1\", \"the_action2\", \"the_action3\"] }. ONLY OUTPUT THE JSON and no other text."
+    prompt = "You are are an expert ontologist and have been asked to help a user define an information classifier.The user will input some text. Based on the user input, you are to provide the action which is best suited among the given options, which are" + str(options)+  ". Please do note that, It can come under multiple options, so provide all of which it matches. And the user input is "+  data + ".Provide the result response as JSON { \"actions\": [\"the_action1\", \"the_action2\", \"the_action3\"] }. ONLY OUTPUT THE JSON and no other text, not even GRAVE ACCENT."
     try:
         nlp_model = llm_switcher.get_nlp_model( model_name=model_name)
 

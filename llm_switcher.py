@@ -1,4 +1,7 @@
 from langchain_community.llms import Ollama
+from dotenv import load_dotenv
+import os
+
 
 class NLPModel:
     def process_text(self, text):
@@ -17,8 +20,11 @@ class Ollama_Model(NLPModel):
 class GeminiAPIModel(NLPModel):
     def process_text(self, text):
         import google.generativeai as genai
-        genai.configure(api_key="YOUR_API_KEY")
 
+        load_dotenv()
+
+        api_key = os.getenv('API_KEY')
+        genai.configure(api_key=api_key)
         # Set up the model
         generation_config = {
         "temperature": 1,

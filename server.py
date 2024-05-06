@@ -7,17 +7,17 @@ app = Flask(__name__)
 @app.route("/api/nlp/process")
 def nlp_process():
     data = request.args.get('data')
-    return process_prompt(data, model_name = "llama3")
+    return process_prompt(data, model_name = "gemini")
 
 @app.route("/api/nlp/classify")
 def nlp_classify():
     data = request.args.get('data')
-    return classify_prompt(data, model_name = "llama3")
+    return classify_prompt(data, model_name = "gemini")
 
 @app.route("/api/nlp/classify_into_multiple")
 def nlp_classify_into_multiple():
     data = request.args.get('data')
-    return classify_multiple_prompt(data, model_name = "llama3")
+    return classify_multiple_prompt(data, model_name = "gemini")
 
 if __name__ == "__main__":
     app.run(debug=True)
