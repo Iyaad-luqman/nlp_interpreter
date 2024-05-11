@@ -1,0 +1,32 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nlp_interpreter"
+version = "1.0.0"
+description = "A package for translating Natural language using NLP processing with Ollama and Gemini into actions."
+readme = "README.md"
+authors = [{ name = "Iyaad Luqman K", email = "iyaadluq@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["nlp", "AI", "language-processing"]
+dependencies=[
+        'langchain_community',
+        'python-dotenv',
+        'google-generativeai',
+        'jsonschema',]
+requires-python = ">=3.9"
+
+
+[project.urls]
+Homepage = "https://github.com/Iyaad-luqman/nlp_interpreter"
+
+[project.scripts]
+nlp_interpreter = "reader.__main__:main"

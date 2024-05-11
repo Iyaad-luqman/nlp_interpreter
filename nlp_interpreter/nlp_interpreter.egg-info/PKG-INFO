@@ -1,6 +1,0 @@
-Metadata-Version: 2.1
-Name: nlp-interpreter
-Version: 1.0.0
-Summary: A package for translating Natural language using NLP processing with Ollama and Gemini into actions.
-Author: Iyaad Luqman K
-Author-email: iyaadluq@gmail.com
